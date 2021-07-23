@@ -15,6 +15,11 @@ class KerjaController extends Controller
     public function index()
     {
         //
+        $kerjas = Kerja::all();
+
+        return view('kerjas.index',[
+            'kerjas'=>$kerjas
+        ]);
     }
 
     /**
@@ -36,6 +41,14 @@ class KerjaController extends Controller
     public function store(Request $request)
     {
         //
+        $kerja = new kerja;
+
+        $kerja->perkara = $request->perkara;
+        $kerja->tarikh = $request->tarikh;
+        $kerja->masa = $request->masa;
+
+        $kerja->save();
+        return redirect('/kerjas/');
     }
 
     /**
@@ -47,6 +60,9 @@ class KerjaController extends Controller
     public function show(Kerja $kerja)
     {
         //
+        return view('kerjas.show',[
+            'kerja'=>$kerja
+        ]);
     }
 
     /**
@@ -70,6 +86,12 @@ class KerjaController extends Controller
     public function update(Request $request, Kerja $kerja)
     {
         //
+        $kerja->perkara = $request->perkara;
+        $kerja->tarikh = $request->tarikh;
+        $kerja->masa = $request->masa;
+
+        $kerja->save();
+        return redirect('/kerjas/');
     }
 
     /**

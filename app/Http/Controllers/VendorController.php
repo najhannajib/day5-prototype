@@ -15,6 +15,11 @@ class VendorController extends Controller
     public function index()
     {
         //
+        $vendors = Vendor::all();
+
+        return view('vendors.index',[
+            'vendors'=>$vendors
+        ]);
     }
 
     /**
@@ -36,6 +41,17 @@ class VendorController extends Controller
     public function store(Request $request)
     {
         //
+        $vendor = new vendor;
+
+        $vendor->idvendor = $request->idvendor;
+        $vendor->syarikat = $request->syarikat;
+        $vendor->kategori = $request->kategori;
+        $vendor->skala = $request->skala;
+        $vendor->pengalaman = $request->pengalaman;
+
+        $vendor->save();
+        return redirect('/vendors/');
+
     }
 
     /**
@@ -47,6 +63,9 @@ class VendorController extends Controller
     public function show(Vendor $vendor)
     {
         //
+        return view('vendors.show',[
+            'vendor'=>$vendor
+        ]);
     }
 
     /**
@@ -70,6 +89,14 @@ class VendorController extends Controller
     public function update(Request $request, Vendor $vendor)
     {
         //
+        $vendor->idvendor = $request->idvendor;
+        $vendor->syarikat = $request->syarikat;
+        $vendor->kategori = $request->kategori;
+        $vendor->skala = $request->skala;
+        $vendor->pengalaman = $request->pengalaman;
+
+        $vendor->save();
+        return redirect('/vendors/');
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRfxesTable extends Migration
+class CreateFailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateRfxesTable extends Migration
      */
     public function up()
     {
-        Schema::create('rfxes', function (Blueprint $table) {
+        Schema::create('fails', function (Blueprint $table) {
             $table->id();
-            $table->string('jenis', 30);
-            $table->string('kategori', 30);
-            $table->string('tarikh', 15);
-            $table->string('status', 10);
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateRfxesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rfxes');
+        Schema::dropIfExists('fails');
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rfx;
+use App\Models\Fail;
 use Illuminate\Http\Request;
 
-class RfxController extends Controller
+class FailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,6 @@ class RfxController extends Controller
     public function index()
     {
         //
-        $rfxes = Rfx::all();
-
-        return view('rfxes.index',[
-            'rfxes'=>$rfxes
-        ]);
     }
 
     /**
@@ -41,38 +36,26 @@ class RfxController extends Controller
     public function store(Request $request)
     {
         //
-        $rfx = new rfx;
-
-        $rfx->jenis = $request->jenis;
-        $rfx->kategori = $request->kategori;
-        $rfx->tarikh = $request->tarikh;
-        $rfx->status = $request->status;
-
-        $rfx->save();
-        return redirect('/rfxes/');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Rfx  $rfx
+     * @param  \App\Models\Fail  $fail
      * @return \Illuminate\Http\Response
      */
-    public function show(Rfx $rfx)
+    public function show(Fail $fail)
     {
         //
-        return view('rfxes.show',[
-            'rfx'=>$rfx
-        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Rfx  $rfx
+     * @param  \App\Models\Fail  $fail
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rfx $rfx)
+    public function edit(Fail $fail)
     {
         //
     }
@@ -81,28 +64,21 @@ class RfxController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Rfx  $rfx
+     * @param  \App\Models\Fail  $fail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rfx $rfx)
+    public function update(Request $request, Fail $fail)
     {
         //
-        $rfx->jenis = $request->jenis;
-        $rfx->kategori = $request->kategori;
-        $rfx->tarikh = $request->tarikh;
-        $rfx->status = $request->status;
-
-        $rfx->save();
-        return redirect('/rfxes/');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Rfx  $rfx
+     * @param  \App\Models\Fail  $fail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rfx $rfx)
+    public function destroy(Fail $fail)
     {
         //
     }

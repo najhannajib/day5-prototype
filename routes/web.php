@@ -14,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.dashboards.default');
+    return view('welcome');
 });
+
+use App\Http\Controllers\VendorController;
+ Route::resource('vendors', VendorController::class); 
+
+ use App\Http\Controllers\RfxController;
+ Route::resource('rfxes', RfxController::class); 
+
+ use App\Http\Controllers\KerjaController;
+ Route::resource('kerjas', KerjaController::class); 
